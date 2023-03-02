@@ -12,20 +12,12 @@ function RegistroPaciente() {
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
-				<form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+				<form name="contact" action='/contact' method="post">
 					<input type="hidden" name="form-name" value="contact" />
-					<p>
-						<label htmlFor='name' >Your Name: <input id='name' type="text" name="name" /></label>
-					</p>
-					<p>
-						<label htmlFor='email' >Your Email: <input id='email' type="email" name="email" /></label>
-					</p>
-					<p>
-						<label >Message: <textarea  name="message"></textarea></label>
-					</p>
-					<p>
-						<button type="submit">Send</button>
-					</p>
+					<input required type="text" name="name" />
+					<input required type="email" name="email" />
+					<textarea name="message" ></textarea>
+					<button type="submit">Send</button>
 				</form>
 
 
