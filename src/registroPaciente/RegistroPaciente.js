@@ -1,8 +1,19 @@
 import './RegistroPaciente.css';
 import Coincidencias from './coincidencias/Coincidencias';
 import React from 'react';
+import * as Realm from "realm-web";
 
-function RegistroPaciente() {
+function RegistroPaciente({app}) {
+	
+	const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+	const plants = mongodb.db("test").collection("testing");
+
+	const result = async () => {
+		const venusFlytrap = await plants.findOne({ thing: "todo" });
+		console.log("venusFlytrap", venusFlytrap);
+	}
+	result()
+
 	return (
 		<div className="principal" >
 			<div className="formulario">

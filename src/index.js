@@ -4,11 +4,27 @@ import './index.css';
 import RegistroPaciente from './registroPaciente/RegistroPaciente';
 //import BuscarPaciente from './buscarPaciente/BuscarPaciente';
 import reportWebVitals from './reportWebVitals';
+import * as Realm from "realm-web";
+
+const app = new Realm.App({ id: "application-0-dmrjg" });
+const credentials = Realm.Credentials.anonymous();
+
+const login = async () => {
+	try {
+		const user = await app.logIn(credentials);
+		console.log("Successfully logged in!", user.id);
+		return user;
+	} catch (err) {
+		console.error("Failed to log in", err.message);
+	}
+}
+
+login()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {<RegistroPaciente />}
+    {<RegistroPaciente app={app} />}
     {/*<BuscarPaciente />*/}
   </React.StrictMode>
 );
