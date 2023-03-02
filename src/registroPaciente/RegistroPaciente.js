@@ -62,7 +62,7 @@ function RegistroPaciente() {
 					<button type="submit" />
 				</form>*/}
 
-				<form name='testing!1' method="POST" action='/testing!1' /*method='post'*/>
+				<form name='testing!12' method="POST" /*action='/testing!1'*/ /*method='post'*/>
 					
 					<input required type="text" name="name" />
 					{/*<input required type="email" name="email" />
