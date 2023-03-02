@@ -10,7 +10,7 @@ function RegistroPaciente() {
 					Registrar paciente
 				</h2>
 
-				<form name="RegistroPacience" method="POST" action="/RegistroPacience" data-netlify='true'>
+				<form name="RegistroPacience" method="POST" /*action="/RegistroPacience"*/ data-netlify='true'>
 
 					<div className='fila'>
 						<div className='campo'>
@@ -158,7 +158,7 @@ function RegistroPaciente() {
 									*
 								</p>
 							</div>
-							<select type="text" name="seguro" className='input' multiple={true}>
+							<select type="text" name="seguro[]" className='input' multiple={true}>
 								<option value="">-</option>
 								<option value="uno">Opción 1</option>
 								<option value="dos">Opción 2</option>
