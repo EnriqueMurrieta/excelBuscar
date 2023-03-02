@@ -39,10 +39,11 @@ const handleChange = (event) => {
 				</h2>
 				<form
 					onSubmit={handleSubmit}
+					name="contact"
 				>
 					<label>
 						What order did the pizza give to the pineapple?
-						<input name="name" type="text" /*value={name}*/ onChange={handleChange} />
+						<input name="name" type="text" value={name} onChange={handleChange} />
 					</label>
 					<button type="submit" />
 				</form>
