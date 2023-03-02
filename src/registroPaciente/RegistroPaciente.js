@@ -30,10 +30,11 @@ const handleChangeMessage = (event) => {
 	}
 
 	const handleSubmit = e => {
+		console.log(name)
 		fetch("/", {
 		  method: "POST",
 		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "form-name": "contact", ...name })
+		  body: encode({ "form-name": "contact", name, email, message })
 		})
 		  .then(() => alert("Success!"))
 		  .catch(error => alert(error));
