@@ -31,8 +31,7 @@ function RegistroPaciente() {
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
-				<form name="contact" method="POST" netlify /*data-netlify="true" onSubmit="submit"*/>
-					<input type="hidden" name="RegistroInput" value="contact" />	
+				<form name="contact" netlify /*data-netlify="true" onSubmit="submit"*/>
 					<p>
 						<label htmlFor='name' >Your Name: <input id='name' type="text" name="name" /></label>
 					</p>
