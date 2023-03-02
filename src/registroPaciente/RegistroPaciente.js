@@ -3,7 +3,7 @@ import Coincidencias from './coincidencias/Coincidencias';
 import React from 'react';
 
 function RegistroPaciente() {
-
+/*
 	const [name, setName] = React.useState()
 	const [email, setEmail] = React.useState()
 	const [message, setMessage] = React.useState()
@@ -44,7 +44,7 @@ function RegistroPaciente() {
 			.catch(error => alert(error));
 
 		e.preventDefault();
-	};
+	};*/
 
 	return (
 		<div className="principal" >
@@ -62,7 +62,7 @@ function RegistroPaciente() {
 					<button type="submit" />
 				</form>*/}
 
-				<form name='testing' /*action='/testing' method='post'*/>
+				<form name='testing' method="POST" /*action='/testing' method='post'*/>
 					<input type="hidden" name="form-name-thingy" value="testing" />
 					<input required type="text" name="name" />
 					<input required type="email" name="email" />
