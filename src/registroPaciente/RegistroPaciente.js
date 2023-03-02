@@ -62,7 +62,7 @@ function RegistroPaciente() {
 					<button type="submit" />
 				</form>*/}
 
-				<form name='testing10' data-netlify="true" method='post' >
+				<form name='testing10' data-netlify="true" netlify data-netlify-honeypot="bot-field" netlify-honeypot="bot-field" method='post' >
 					<input type="hidden" name="form-name-thingy" value="testing10" />
 					<input required type="text" name="name" />
 					{/*<input required type="email" name="email" />
