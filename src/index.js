@@ -24,7 +24,7 @@ login()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {<RegistroPaciente /*app={app}*/ />}
+    {<RegistroPaciente app={app} />}
     {/*<BuscarPaciente />*/}
   </React.StrictMode>
 );
