@@ -23,7 +23,7 @@ const handleChange = (event) => {
 		fetch("/", {
 		  method: "POST",
 		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "form-name": "contact1", ...name })
+		  body: encode({ "form-name": "tre", ...name })
 		})
 		  .then(() => alert("Success!"))
 		  .catch(error => alert(error));
@@ -39,7 +39,7 @@ const handleChange = (event) => {
 				</h2>
 				<form
 					onSubmit={handleSubmit}
-					name="contact1"
+					name="tre"
 				>
 					<label>
 						What order did the pizza give to the pineapple?
