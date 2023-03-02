@@ -51,9 +51,9 @@ const handleChangeMessage = (event) => {
 					onSubmit={handleSubmit}
 					name="contact"
 				>
-					<input name="name" type="text" value={name} onChange={handleChange} />
-					<input required type="email" name="email" value={email}  onChange={handleChangeEmail}/>
-					<textarea name="message" value={message} onChange={handleChangeMessage}></textarea>
+					<input name="name" type="text" value={name} onChange={() => handleChange} />
+					<input required type="email" name="email" value={email}  onChange={() => handleChangeEmail}/>
+					<textarea name="message" value={message} onChange={() => handleChangeMessage}></textarea>
 					<button type="submit" />
 				</form>
 
