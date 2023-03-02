@@ -19,19 +19,17 @@ const handleChange = (event) => {
 			.join("&");
 	}
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
+	const handleSubmit = e => {
 		fetch("/", {
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: encode({
-				"form-name": event.target.getAttribute("name"),
-				...name,
-			}),
+		  method: "POST",
+		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		  body: encode({ "form-name": "contact", ...name })
 		})
-			.then(() => console.log("/thank-you/"))
-			.catch((error) => alert(error));
-	};
+		  .then(() => alert("Success!"))
+		  .catch(error => alert(error));
+  
+		e.preventDefault();
+	  };
 
 	return (
 		<div className="principal" >
@@ -40,17 +38,13 @@ const handleChange = (event) => {
 					Registrar paciente
 				</h2>
 				<form
-					data-netlify="true"
-					name="pizzaOrder"
-					method="post"
 					onSubmit={handleSubmit}
 				>
-					<input type="hidden" name="form-name" value="pizzaOrder" />
 					<label>
 						What order did the pizza give to the pineapple?
-						<input name="order" type="text" onChange={handleChange} />
+						<input name="name" type="text" /*value={name}*/ onChange={handleChange} />
 					</label>
-					<input type="submit" />
+					<button type="submit" />
 				</form>
 
 
