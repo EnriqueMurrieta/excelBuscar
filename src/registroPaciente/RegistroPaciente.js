@@ -3,9 +3,9 @@ import Coincidencias from './coincidencias/Coincidencias';
 import React from 'react';
 
 function RegistroPaciente({app}) {
-/*	
+	
 	const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-	const plants = mongodb.db("test").collection("testing");
+	/*const plants = mongodb.db("test").collection("testing");
 
 	const result = async () => {
 		const venusFlytrap = await plants.findOne({ thing: "todo" });
