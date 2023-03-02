@@ -10,7 +10,7 @@ function RegistroPaciente() {
 					Registrar paciente
 				</h2>
 
-				<form name="RegistroPacience" method="POST" data-netlify='true'>
+				<form name="RegistroPacience" method="POST" action="/RegistroPacience" data-netlify='true'>
 
 					<div className='fila'>
 						<div className='campo'>
