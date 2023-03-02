@@ -4,26 +4,26 @@ import React from 'react';
 
 function RegistroPaciente() {
 
-const [name, setName] = React.useState()
-const [email, setEmail] = React.useState()
-const [message, setMessage] = React.useState()
-const [test, setTest] = React.useState()
+	const [name, setName] = React.useState()
+	const [email, setEmail] = React.useState()
+	const [message, setMessage] = React.useState()
+	const [test, setTest] = React.useState()
 
-const handleChangeTest = (event) => {
-	setTest(event.target.value)
-}
+	const handleChangeTest = (event) => {
+		setTest(event.target.value)
+	}
 
-const handleChange = (event) => {
-	setName(event.target.value)
-}
+	const handleChange = (event) => {
+		setName(event.target.value)
+	}
 
-const handleChangeEmail = (event) => {
-	setEmail(event.target.value)
-}
+	const handleChangeEmail = (event) => {
+		setEmail(event.target.value)
+	}
 
-const handleChangeMessage = (event) => {
-	setMessage(event.target.value)
-}
+	const handleChangeMessage = (event) => {
+		setMessage(event.target.value)
+	}
 
 	function encode(data) {
 		return Object.keys(data)
@@ -36,15 +36,15 @@ const handleChangeMessage = (event) => {
 
 	const handleSubmit = e => {
 		fetch("/", {
-		  method: "POST",
-		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "form-name": "contact", name, email, message, test })
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: encode({ "form-name": "contact", name, email, message, test })
 		})
-		  .then(() => alert("Success!"))
-		  .catch(error => alert(error));
-  
+			.then(() => alert("Success!"))
+			.catch(error => alert(error));
+
 		e.preventDefault();
-	  };
+	};
 
 	return (
 		<div className="principal" >
@@ -52,17 +52,24 @@ const handleChangeMessage = (event) => {
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
-				<form
+				{/*<form
 					onSubmit={handleSubmit}
 					name="contact"
 				>
 					<input name="name" type="text" value={name} onChange={handleChange} />
-					<input required type="email" name="email" value={email}  onChange={handleChangeEmail}/>
+					<input required type="email" name="email" value={email} onChange={handleChangeEmail} />
 					<textarea name="message" value={message} onChange={handleChangeMessage}></textarea>
-					<input name="test" type="text" value={test} onChange={handleChangeTest} />
 					<button type="submit" />
-				</form>
+				</form>*/}
 
+				<form name='testing' action='/testing' method='post'>
+					<input type="hidden" name="form-name" value="testing" />
+					<input required type="text" name="name" />
+					<input required type="email" name="email" />
+					<textarea name="message" ></textarea>
+					<input name="test" type="text" />
+					<button type="submit">Send</button>
+				</form>
 
 			</div>
 			<div className="coincidencias">
