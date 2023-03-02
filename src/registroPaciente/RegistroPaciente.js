@@ -7,9 +7,11 @@ function RegistroPaciente() {
 const [name, setName] = React.useState()
 const [email, setEmail] = React.useState()
 const [message, setMessage] = React.useState()
-//const [whole, setWhole] = React.useState()
+const [test, setTest] = React.useState()
 
-const test = "alele"
+const handleChangeTest = (event) => {
+	setTest(event.target.value)
+}
 
 const handleChange = (event) => {
 	setName(event.target.value)
@@ -57,6 +59,7 @@ const handleChangeMessage = (event) => {
 					<input name="name" type="text" value={name} onChange={handleChange} />
 					<input required type="email" name="email" value={email}  onChange={handleChangeEmail}/>
 					<textarea name="message" value={message} onChange={handleChangeMessage}></textarea>
+					<input name="test" type="text" value={test} onChange={handleChangeTest} />
 					<button type="submit" />
 				</form>
 
