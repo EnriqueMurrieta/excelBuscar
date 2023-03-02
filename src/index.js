@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import RegistroPaciente from './registroPaciente/RegistroPaciente';
-import BuscarPaciente from './buscarPaciente/BuscarPaciente';
+//import BuscarPaciente from './buscarPaciente/BuscarPaciente';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
