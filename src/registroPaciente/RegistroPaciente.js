@@ -9,9 +9,10 @@ const [email, setEmail] = React.useState()
 const [message, setMessage] = React.useState()
 //const [whole, setWhole] = React.useState()
 
+const test = "alele"
+
 const handleChange = (event) => {
 	setName(event.target.value)
-	//console.log(event.target.value)
 }
 
 const handleChangeEmail = (event) => {
@@ -32,13 +33,10 @@ const handleChangeMessage = (event) => {
 	}
 
 	const handleSubmit = e => {
-		console.log(name)
-		console.log(email)
-		console.log(message)
 		fetch("/", {
 		  method: "POST",
 		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "form-name": "contact", name, email, message })
+		  body: encode({ "form-name": "contact", name, email, message, test })
 		})
 		  .then(() => alert("Success!"))
 		  .catch(error => alert(error));
