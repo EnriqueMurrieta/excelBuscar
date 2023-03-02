@@ -1,0 +1,63 @@
+{
+    "pacientes": [
+        {
+            "nombre":"Raul",
+            "paterno":"Ramirez",
+            "materno":"Mendez",
+            "nacimiento":"01/05/1990",
+            "genero":"Masculino",
+            "estadoCivil":"Soltero",
+            "telefono":"6461234567",
+            "tipoTelefono":"Movil",
+            "correo":"raul@raul.com",
+            "emergenciaTelefono":"6467894561",
+            "emergenciaContacto":"Joel",
+            "seguro":[
+                "Opcion 1",
+                "Opcion 3"
+            ],
+            "image":{
+                "src":"jake.jpg"
+            }
+        },
+        {
+            "nombre":"Mariana",
+            "paterno":"Ramirez",
+            "materno":"Mendez",
+            "nacimiento":"01/05/1990",
+            "genero":"Femenino",
+            "estadoCivil":"Soltero",
+            "telefono":"6461234567",
+            "tipoTelefono":"Fijo",
+            "correo":"Mariana@Mariana.com",
+            "emergenciaTelefono":"6467894561",
+            "emergenciaContacto":"Jarvis",
+            "seguro":[
+                "Opcion 3",
+                "Opcion 2"
+            ],
+            "image":{
+                "src": "jurica.jpg"
+            }
+        },
+        {
+            "nombre":"Gertrudis",
+            "paterno":"Ramirez",
+            "materno":"Mendez",
+            "nacimiento":"01/05/1990",
+            "genero":"Femenino",
+            "estadoCivil":"Soltero",
+            "telefono":"6461234567",
+            "tipoTelefono":"Movil",
+            "correo":"Gertrudis@Gertrudis.com",
+            "emergenciaTelefono":"6467894561",
+            "emergenciaContacto":"Joel",
+            "seguro":[
+                "Opcion 1"
+            ],
+            "image":{
+                "src": "jonas.jpg"
+            }
+        }
+    ]
+}
