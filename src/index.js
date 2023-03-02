@@ -6,7 +6,7 @@ import RegistroPaciente from './registroPaciente/RegistroPaciente';
 import reportWebVitals from './reportWebVitals';
 import * as Realm from "realm-web";
 
-/*const app = new Realm.App({ id: "application-0-dmrjg" });
+const app = new Realm.App({ id: "application-0-dmrjg" });
 const credentials = Realm.Credentials.anonymous();
 
 const login = async () => {
@@ -20,7 +20,7 @@ const login = async () => {
 }
 
 login()
-*/
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
