@@ -8,8 +8,14 @@ function RegistroPaciente({app}) {
 	const plants = mongodb.db("test").collection("testing");
 
 	const result = async () => {
-		const venusFlytrap = await plants.findOne({ thing: "todo" });
+/*		const venusFlytrap = await plants.findOne({ thing: "todo" });
 		console.log("venusFlytrap", venusFlytrap);
+*/
+		return await plants.insertOne({
+			test: "d00one",
+			ddd:"aaaAA"
+		  })
+		//console.log("venusFlytrap", venusFlytrap);
 	}
 	result()
 
