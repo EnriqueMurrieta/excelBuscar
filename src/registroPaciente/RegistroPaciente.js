@@ -38,7 +38,7 @@ const handleChangeMessage = (event) => {
 		fetch("/", {
 		  method: "POST",
 		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "form-name": "contact1", name, email, message })
+		  body: encode({ "form-name": "contact", name, email, message })
 		})
 		  .then(() => alert("Success!"))
 		  .catch(error => alert(error));
@@ -54,7 +54,7 @@ const handleChangeMessage = (event) => {
 				</h2>
 				<form
 					onSubmit={handleSubmit}
-					name="contact1"
+					name="contact"
 				>
 					<input name="name" type="text" value={name} onChange={handleChange} />
 					<input required type="email" name="email" value={email}  onChange={handleChangeEmail}/>
