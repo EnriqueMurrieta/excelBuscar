@@ -1,10 +1,37 @@
 import './RegistroPaciente.css';
 import Coincidencias from './coincidencias/Coincidencias';
-//import React from 'react';
+import React from 'react';
 
 function RegistroPaciente() {
 
+const [name, setName] = React.useState()
 
+const handleChange = (event) => {
+	setName(event.target.value)
+}
+
+	function encode(data) {
+		return Object.keys(data)
+			.map(
+				(key) =>
+					encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+			)
+			.join("&");
+	}
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: encode({
+				"form-name": event.target.getAttribute("name"),
+				...name,
+			}),
+		})
+			.then(() => console.log("/thank-you/"))
+			.catch((error) => alert(error));
+	};
 
 	return (
 		<div className="principal" >
@@ -12,12 +39,18 @@ function RegistroPaciente() {
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
-				<form name="contact" action='/contact' method="post">
-					<input type="hidden" name="form-name" value="contact" />
-					<input required type="text" name="name" />
-					<input required type="email" name="email" />
-					<textarea name="message" ></textarea>
-					<button type="submit">Send</button>
+				<form
+					data-netlify="true"
+					name="pizzaOrder"
+					method="post"
+					onSubmit={handleSubmit}
+				>
+					<input type="hidden" name="form-name" value="pizzaOrder" />
+					<label>
+						What order did the pizza give to the pineapple?
+						<input name="order" type="text" onChange={handleChange} />
+					</label>
+					<input type="submit" />
 				</form>
 
 
@@ -30,6 +63,14 @@ function RegistroPaciente() {
 }
 
 export default RegistroPaciente;
+
+/*
+<input type="hidden" name="form-name" value="contact" />
+					<input required type="text" name="name" />
+					<input required type="email" name="email" />
+					<textarea name="message" ></textarea>
+					<button type="submit">Send</button>
+*/
 
 
 /*
