@@ -62,7 +62,8 @@ function RegistroPaciente() {
 					<button type="submit" />
 				</form>*/}
 
-				<form name='testing8' >
+				<form name='testing9'  >
+					<input type="hidden" name="form-name-thingy" value="testing9" />
 					<input required type="text" name="name" />
 					{/*<input required type="email" name="email" />
 					<textarea required name="message" ></textarea>
