@@ -3,14 +3,69 @@ import Coincidencias from './coincidencias/Coincidencias';
 //import React from 'react';
 
 function RegistroPaciente() {
+
+	/*const handleSubmit = e => {
+		e.preventDefault();
+		console.log(e)
+		console.log(e.target)
+
+		const myForm = e.target;
+		const formData = new FormData(myForm);
+
+		console.log(myForm)
+		console.log(formData)
+
+		/*fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			//body: encode({ "form-name": "RegistroPacience", ...this.state })
+			body: new URLSearchParams(formData).toString(),
+		})
+			.then(() => console.log("Form successfully submitted"))
+			.catch((error) => alert(error));
+	};*/
+
 	return (
 		<div className="principal" >
 			<div className="formulario">
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
+				<form name="contact" method="POST" data-netlify="true">
+					<p>
+						<label>Your Name: <input type="text" name="name" /></label>
+					</p>
+					<p>
+						<label>Your Email: <input type="email" name="email" /></label>
+					</p>
+					<p>
+						<label>Your Role: <select name="role[]" multiple>
+							<option value="leader">Leader</option>
+							<option value="follower">Follower</option>
+						</select></label>
+					</p>
+					<p>
+						<label>Message: <textarea name="message"></textarea></label>
+					</p>
+					<p>
+						<button type="submit">Send</button>
+					</p>
+				</form>
 
-				<form name="RegistroPacience" method="POST" /*action="" data-netlify='true'*/>
+
+			</div>
+			<div className="coincidencias">
+				<Coincidencias />
+			</div>
+		</div>
+	);
+}
+
+export default RegistroPaciente;
+
+
+/*
+				<form onSubmit={(e) => handleSubmit(e)} name="RegistroPacience" method="POST"action="" data-netlify='true'>
 					<input type="hidden" name="RegistroInput" value="RegistroPacience" />
 					<div className='fila'>
 						<div className='campo'>
@@ -175,13 +230,4 @@ function RegistroPaciente() {
 					</div>
 
 				</form>
-
-			</div>
-			<div className="coincidencias">
-				<Coincidencias />
-			</div>
-		</div>
-	);
-}
-
-export default RegistroPaciente;
+*/
