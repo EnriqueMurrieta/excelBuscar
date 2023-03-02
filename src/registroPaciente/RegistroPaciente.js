@@ -4,26 +4,7 @@ import Coincidencias from './coincidencias/Coincidencias';
 
 function RegistroPaciente() {
 
-	/*const handleSubmit = e => {
-		e.preventDefault();
-		console.log(e)
-		console.log(e.target)
 
-		const myForm = e.target;
-		const formData = new FormData(myForm);
-
-		console.log(myForm)
-		console.log(formData)
-
-		/*fetch("/", {
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			//body: encode({ "form-name": "RegistroPacience", ...this.state })
-			body: new URLSearchParams(formData).toString(),
-		})
-			.then(() => console.log("Form successfully submitted"))
-			.catch((error) => alert(error));
-	};*/
 
 	return (
 		<div className="principal" >
@@ -31,7 +12,8 @@ function RegistroPaciente() {
 				<h2 className='titulo'>
 					Registrar paciente
 				</h2>
-				<form name="contact" netlify /*data-netlify="true" onSubmit="submit"*/>
+				<form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+					<input type="hidden" name="form-name" value="contact" />
 					<p>
 						<label htmlFor='name' >Your Name: <input id='name' type="text" name="name" /></label>
 					</p>
