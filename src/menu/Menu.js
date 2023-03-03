@@ -15,8 +15,9 @@ function Menu({ app }) {
         todosPacientes()
     }, [app])
 
-    return (
-       <BuscarPaciente db={db} app={app} />
+    return (    
+    
+    <BuscarPaciente db={db} app={app} />
     );
 }
 

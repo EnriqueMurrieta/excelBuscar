@@ -3,21 +3,37 @@ import React, { useState } from 'react';
 
 function BuscarPaciente({ app, db }) {
 
+    const dbRows = db.reduce((acc, obj, index) => {
+        const rowIndex = Math.floor(index / 3);
+        if (!acc[rowIndex]) {
+            acc[rowIndex] = [];
+        }
+        acc[rowIndex].push(obj);
+        return acc;
+    }, []);
+
     const mongodb = app.currentUser.mongoClient("mongodb-atlas");
     const pacienteInput = mongodb.db("Pacientes").collection("Paciente");
 
     const [seleccion, setSeleccion] = useState(false)
     const [paciente, setPaciente] = useState({})
-    const [resultado, setResultado] = useState(null)
+    const [resultadoRows, setResultadoRows] = useState(null)
 
     const handleChange = async (event) => {
-        console.log(typeof db1)
-        setResultado(await pacienteInput.find({ nombre: event.target.value }))
+        const resultado = await pacienteInput.find({ nombre: event.target.value })
+        const resultadoRowsContainer = resultado.reduce((acc, obj, index) => {
+            const rowIndex = Math.floor(index / 3);
+            if (!acc[rowIndex]) {
+                acc[rowIndex] = [];
+            }
+            acc[rowIndex].push(obj);
+            return acc;
+        }, []);
+        setResultadoRows(resultadoRowsContainer)
     }
 
     const infoPaciente = async (db) => {
         setPaciente(db)
-        console.log("click")
         setSeleccion(true)
     }
 
@@ -59,20 +75,37 @@ function BuscarPaciente({ app, db }) {
                     <h2>
                         Resultados :
                     </h2>
-                    <div className='resultados'>
-                        <div className='fila'>
-                            {
-                                resultado == null || resultado.length === 0 ?
-                                    db.map(instance => (
-                                        <Card key={instance.paterno} db={instance} />
-                                    ))
-                                    :
-                                    resultado.map(instance => (
-                                        <Card key={instance.paterno} db={instance} />
-                                    ))
-                            }
-                        </div>
-                    </div>
+                    {
+                        resultadoRows == null || resultadoRows.length === 0
+
+                            ?
+
+                            <div className='resultados'>
+                                {dbRows.map((dbRow, rowIndex) => (
+                                    <div key={rowIndex} className="fila">
+                                        {
+                                            dbRow.map((object, colIndex) => (
+                                                <Card key={object.paterno} db={object} />
+                                            ))
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+
+                            :
+
+                            <div className='resultados'>
+                                {resultadoRows.map((dbRow, rowIndex) => (
+                                    <div key={rowIndex} className="fila">
+                                        {
+                                            dbRow.map((object, colIndex) => (
+                                                <Card key={object.paterno} db={object} />
+                                            ))
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                    }
                 </div>
             </div>
             <div className='paciente' >
