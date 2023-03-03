@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import RegistroPaciente from './registroPaciente/RegistroPaciente';
+//import RegistroPaciente from './registroPaciente/RegistroPaciente';
 import BuscarPaciente from './buscarPaciente/BuscarPaciente';
 import reportWebVitals from './reportWebVitals';
 import * as Realm from "realm-web";
