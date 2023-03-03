@@ -1,6 +1,5 @@
 import './BuscarPaciente.css';
 import React, { useState } from 'react';
-//import db1 from './patients.json'
 
 function BuscarPaciente({ app, db }) {
 
@@ -10,26 +9,11 @@ function BuscarPaciente({ app, db }) {
     const [seleccion, setSeleccion] = useState(false)
     const [paciente, setPaciente] = useState({})
     const [resultado, setResultado] = useState(null)
-    //const [db, setDb] = useState([])
 
     const handleChange = async (event) => {
         console.log(typeof db1)
         setResultado(await pacienteInput.find({ nombre: event.target.value }))
     }
-
-    /*React.useEffect(() => {
-        async function todosPacientes() {
-            const response = await pacienteInput.find({})
-            setDb(response)
-        }
-        //todosPacientes()
-        //console.log(pacienteInput.find({}))
-        //console.log(resultado)
-        //console.log(resultado.nombre)
-        //console.log(typeof resultado)
-        //console.log(Object.keys(resultado).length)
-        //console.log(typeof db.pacientes)
-    }, [pacienteInput])*/
 
     const infoPaciente = async (db) => {
         setPaciente(db)
@@ -69,7 +53,7 @@ function BuscarPaciente({ app, db }) {
         <div className='principal'>
             <div className='buscador' >
                 <div style={{ paddingLeft: '5%', marginTop: '2%' }}>
-                    <input placeholder='Buscar Nombre' /*value={buscado}*/ onChange={handleChange} style={{ paddingLeft: '2%', width: "25%", fontSize: 15 }} />
+                    <input placeholder='Buscar Nombre' onChange={handleChange} style={{ paddingLeft: '2%', width: "25%", fontSize: 15 }} />
                 </div>
                 <div style={{ marginTop: "0%", paddingTop: '0%' }}>
                     <h2>

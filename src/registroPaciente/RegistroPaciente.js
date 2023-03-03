@@ -79,14 +79,7 @@ function RegistroPaciente({ app }) {
 		checkSubmit()
 	})
 
-	/*		const venusFlytrap = await plants.findOne({ thing: "todo" });
-			console.log("venusFlytrap", venusFlytrap);
-	*/
-
 	const handleSubmit = async () => {
-		/*return await paciente.insertOne({
-			training:"done"
-		})*/
 		return await pacienteInput.insertOne({
 			nombre: nombre.toLowerCase(),
 			paterno: paterno.toLowerCase(),
