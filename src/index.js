@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import RegistroPaciente from './registroPaciente/RegistroPaciente';
-//import BuscarPaciente from './buscarPaciente/BuscarPaciente';
+import BuscarPaciente from './buscarPaciente/BuscarPaciente';
 import reportWebVitals from './reportWebVitals';
 import * as Realm from "realm-web";
 
@@ -24,8 +24,8 @@ login()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {<RegistroPaciente app={app} />}
-    {/*<BuscarPaciente />*/}
+    {/*<RegistroPaciente app={app} />*/}
+    {<BuscarPaciente app={app} />}
   </React.StrictMode>
 );
 

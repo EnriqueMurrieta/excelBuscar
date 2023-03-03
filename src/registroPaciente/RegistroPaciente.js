@@ -6,7 +6,6 @@ function RegistroPaciente({ app }) {
 
 	const mongodb = app.currentUser.mongoClient("mongodb-atlas");
 	const pacienteInput = mongodb.db("Pacientes").collection("Paciente");
-	//const plants = mongodb.db("test").collection("testing");
 
 	const [nombre, setNombre] = useState();
 	const [paterno, setPaterno] = useState();
@@ -77,35 +76,27 @@ function RegistroPaciente({ app }) {
 		checkSubmit()
 	})
 
-	//const result = async () => {
-
 		/*		const venusFlytrap = await plants.findOne({ thing: "todo" });
 				console.log("venusFlytrap", venusFlytrap);
 		*/
-		/*return await plants.insertOne({
-			test: "d00one",
-			ddd:"aaaAA"
-		  })*/
-	//}
-	//result()
 
 	const handleSubmit = async () => {
 		/*return await paciente.insertOne({
 			training:"done"
 		})*/
 		return await pacienteInput.insertOne({
-			nombre: nombre,
-			paterno: paterno,
-			materno: materno,
+			nombre: nombre.toLowerCase(),
+			paterno: paterno.toLowerCase(),
+			materno: materno.toLowerCase(),
 			nacimiento: nacimiento,
-			genero: genero,
-			estadoCivil: estadoCivil,
+			genero: genero.toLowerCase(),
+			estadoCivil: estadoCivil.toLowerCase(),
 			telefono: telefono,
-			tipoTelefono: tipoTelefono,
-			correo: correo,
+			tipoTelefono: tipoTelefono.toLowerCase(),
+			correo: correo.toLowerCase(),
 			emergenciaTelefono: emergenciaTelefono,
-			emergenciaContacto: emergenciaContacto,
-			seguro: seguro
+			emergenciaContacto: emergenciaContacto.toLowerCase(),
+			seguro: seguro.toLowerCase()
 		})
 		/*console.log(nombre)
 		console.log(paterno)

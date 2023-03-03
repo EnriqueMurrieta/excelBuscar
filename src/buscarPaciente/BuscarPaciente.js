@@ -2,11 +2,26 @@ import './BuscarPaciente.css';
 import React, { useState } from 'react';
 import db from './patients.json'
 
-function BuscarPaciente() {
+function BuscarPaciente({ app }) {
+
+    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+    const pacienteInput = mongodb.db("Pacientes").collection("Paciente");
 
     const [seleccion, setSeleccion] = useState(false)
     const [paciente, setPaciente] = useState({})
+    const [resultado, setResultado] = useState(null)
 
+    const handleChange = async (event) => {
+        setResultado(await pacienteInput.find({ nombre: event.target.value }))
+    }
+
+    React.useEffect(() => {
+        console.log(resultado)
+        //console.log(resultado.nombre)
+        console.log(typeof resultado)
+        //console.log(Object.keys(resultado).length)
+        //console.log(typeof db.pacientes)
+    }, [resultado])
 
     const infoPaciente = (db) => {
         setPaciente(db)
@@ -14,11 +29,10 @@ function BuscarPaciente() {
     }
 
     function Card({ db }) {
-        const imagePath = db.image.src
         return (
             <div className='tarjeta' style={{ cursor: "pointer" }} onClick={() => infoPaciente(db)}>
                 <div style={{ textAlign: "center" }}>
-                    <img src={require('./' + imagePath)} /*src={require('../imgs/jake.jpg')}*/ alt={db.name} style={{ height: "150px", width: "150px" }} />
+                    <img src={require('./blank.png')} alt={db.nombre} style={{ height: "150px", width: "150px" }} />
                 </div>
                 <div className='infoContainer'>
                     <div className='info'>
@@ -46,7 +60,7 @@ function BuscarPaciente() {
         <div className='principal'>
             <div className='buscador' >
                 <div style={{ paddingLeft: '5%', marginTop: '2%' }}>
-                    <input placeholder='Buscador' style={{ paddingLeft: '2%', width: "25%", fontSize: 15 }} />
+                    <input placeholder='Buscar Nombre' /*value={buscado}*/ onChange={handleChange} style={{ paddingLeft: '2%', width: "25%", fontSize: 15 }} />
                 </div>
                 <div style={{ marginTop: "0%", paddingTop: '0%' }}>
                     <h2>
@@ -55,9 +69,14 @@ function BuscarPaciente() {
                     <div className='resultados'>
                         <div className='fila'>
                             {
-                                db.pacientes.map(instance => (
-                                    <Card key={instance.nombre} db={instance} />
-                                ))
+                                resultado == null || resultado.length === 0 ?
+                                    db.pacientes.map(instance => (
+                                        <Card key={instance.nombre} db={instance} />
+                                    ))
+                                    :
+                                    resultado.map(instance => (
+                                        <Card key={instance.paterno} db={instance} />
+                                    ))
                             }
                         </div>
                     </div>
@@ -72,7 +91,7 @@ function BuscarPaciente() {
                                 Información del paciente
                             </h2>
                             <div style={{ textAlign: "center" }}>
-                                <img src={require('./' + paciente.image.src)} alt={paciente.name} style={{ height: "100px", width: "100px" }} />
+                                <img src={require('./blank.png')} alt={paciente.nombre} style={{ height: "100px", width: "100px" }} />
                             </div>
                             <p>
                                 {paciente.nombre} {paciente.paterno} {paciente.materno}
