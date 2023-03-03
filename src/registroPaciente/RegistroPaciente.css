@@ -23,6 +23,12 @@
   border-color: blue;*/
 }
 
+.coincidencias {
+  width: 25%;
+  border-style: solid; 
+  border-color: gray;
+}
+
 @media screen and (max-width: /*485px*/648px) {
   .fila {
     width: 100%;
@@ -50,12 +56,9 @@
   }
 
   .coincidencias {
+    margin-top: 8%;
     width: 100%;
   }
-}
-
-.coincidencias {
-  width: 25%;
 }
 
 .campo {

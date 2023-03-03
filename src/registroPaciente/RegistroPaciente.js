@@ -30,10 +30,13 @@ function RegistroPaciente({ app }) {
 		}
 	}
 
+	const [resultado, setResultado] = useState(null)
+
 	const handleChange = async (event) => {
 		switch (event.target.name) {
 			case 'nombre':
 				setNombre(event.target.value)
+				setResultado(await pacienteInput.find({ nombre: event.target.value }))
 				break;
 			case 'paterno':
 				setPaterno(event.target.value)
@@ -76,9 +79,9 @@ function RegistroPaciente({ app }) {
 		checkSubmit()
 	})
 
-		/*		const venusFlytrap = await plants.findOne({ thing: "todo" });
-				console.log("venusFlytrap", venusFlytrap);
-		*/
+	/*		const venusFlytrap = await plants.findOne({ thing: "todo" });
+			console.log("venusFlytrap", venusFlytrap);
+	*/
 
 	const handleSubmit = async () => {
 		/*return await paciente.insertOne({
@@ -98,18 +101,6 @@ function RegistroPaciente({ app }) {
 			emergenciaContacto: emergenciaContacto.toLowerCase(),
 			seguro: seguro.toLowerCase()
 		})
-		/*console.log(nombre)
-		console.log(paterno)
-		console.log(materno)
-		console.log(nacimiento)
-		console.log(genero)
-		console.log(estadoCivil)
-		console.log(telefono)
-		console.log(tipoTelefono)
-		console.log(correo)
-		console.log(emergenciaTelefono)
-		console.log(emergenciaContacto)
-		console.log(seguro)*/
 	}
 
 	return (
@@ -288,7 +279,14 @@ function RegistroPaciente({ app }) {
 
 			</div>
 			<div className="coincidencias">
-				<Coincidencias />
+				{
+					resultado == null || resultado.length === 0 ?
+						<div></div>
+						:
+
+						<Coincidencias resultado={resultado} />
+
+				}
 			</div>
 		</div>
 	);

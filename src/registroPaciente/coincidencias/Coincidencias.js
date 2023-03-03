@@ -1,11 +1,20 @@
 import './Coincidencias.css';
 //import React from 'react';
 
-function Coincidencias() {
+function Coincidencias({resultado}) {
+    console.log(resultado)
+
     return (
-        <h2>
-            Coincidencias
-        </h2>
+        <div style={{textAlign:"center", width:"100%"}} >
+            <h2>Coincidencias</h2>
+            {
+                resultado.map(instance => (
+                    <div key={instance.paterno}>
+                        <p>{instance.nombre} {instance.paterno} {instance.materno}</p>
+                    </div>
+                ))
+            }
+        </div>
     );
 }
 
