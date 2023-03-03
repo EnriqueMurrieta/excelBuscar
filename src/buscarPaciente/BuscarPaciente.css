@@ -14,7 +14,6 @@
 .tarjeta {
     border-style: solid;
     border-color: black;
-    width:"100%";
     width:20%;
     height:"100%";
 }

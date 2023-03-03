@@ -1,8 +1,8 @@
 import './BuscarPaciente.css';
 import React, { useState } from 'react';
-import db from './patients.json'
+//import db1 from './patients.json'
 
-function BuscarPaciente({ app }) {
+function BuscarPaciente({ app, db }) {
 
     const mongodb = app.currentUser.mongoClient("mongodb-atlas");
     const pacienteInput = mongodb.db("Pacientes").collection("Paciente");
@@ -10,21 +10,30 @@ function BuscarPaciente({ app }) {
     const [seleccion, setSeleccion] = useState(false)
     const [paciente, setPaciente] = useState({})
     const [resultado, setResultado] = useState(null)
+    //const [db, setDb] = useState([])
 
     const handleChange = async (event) => {
+        console.log(typeof db1)
         setResultado(await pacienteInput.find({ nombre: event.target.value }))
     }
 
-    React.useEffect(() => {
-        console.log(resultado)
+    /*React.useEffect(() => {
+        async function todosPacientes() {
+            const response = await pacienteInput.find({})
+            setDb(response)
+        }
+        //todosPacientes()
+        //console.log(pacienteInput.find({}))
+        //console.log(resultado)
         //console.log(resultado.nombre)
-        console.log(typeof resultado)
+        //console.log(typeof resultado)
         //console.log(Object.keys(resultado).length)
         //console.log(typeof db.pacientes)
-    }, [resultado])
+    }, [pacienteInput])*/
 
-    const infoPaciente = (db) => {
+    const infoPaciente = async (db) => {
         setPaciente(db)
+        console.log("click")
         setSeleccion(true)
     }
 
@@ -70,8 +79,8 @@ function BuscarPaciente({ app }) {
                         <div className='fila'>
                             {
                                 resultado == null || resultado.length === 0 ?
-                                    db.pacientes.map(instance => (
-                                        <Card key={instance.nombre} db={instance} />
+                                    db.map(instance => (
+                                        <Card key={instance.paterno} db={instance} />
                                     ))
                                     :
                                     resultado.map(instance => (
